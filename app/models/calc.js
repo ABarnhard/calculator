@@ -47,4 +47,17 @@ Calc.mean = function(nums){
   return sum / nums.length;
 };
 
+Calc.stdev = function(nums){
+  var squares = [];
+  var mean = Calc.mean(nums);
+
+  for(var i = 0; i < nums.length; i++){
+    squares.push(Math.pow((nums[i] - mean), 2));
+  }
+
+  var variance = Calc.mean(squares);
+  var sigma = Math.sqrt(variance);
+  return sigma;
+
+};
 module.exports = Calc;
